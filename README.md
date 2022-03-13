@@ -2,7 +2,7 @@
 ## Развёртывание сайта.
 1. Скачайте и установите DockerHub на свой компьютер (На Ubuntu: https://hub.docker.com/editions/community/docker-ce-server-ubuntu На Windows: https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 2. Откройте командную строку и введите в консоль следующие команды:
-2.1 docker pull tasksimbirsoft/noutesusers
+	2.1 docker pull tasksimbirsoft/noutesusers
 	2.2 docker pull tasksimbirsoft/postgres
 	2.3 docker run --name ClientDB -p 5432:5432 -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=<ваш пароль> -e POSTGRES_DB=db -e PGDATA=/var/lib/postgresql/data/pgdata -d -v "/absolute/path/to/directory-with-data":/var/lib/postgresql/data -v "/absolute/path/to/directory-with-init-scripts":/docker-entrypoint-initdb.d tasksimbirsoft/postgres:13.3
 	2.4 docker run -d -p <ваш ip-адрес или localhost>:5000:80 --name UserNotes tasksimbirsoft/notesusers
