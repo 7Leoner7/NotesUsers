@@ -1,6 +1,6 @@
 # NotesUsers
 ## Развёртывание сайта.
-1. Скачайте и установите DockerHub на свой компьютер
+1. Скачайте и установите DockerHub на свой компьютер (На Ubuntu: https://hub.docker.com/editions/community/docker-ce-server-ubuntu На Windows: https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 2. Откройте командную строку и введите в консоль следующие команды:
 	2.1 docker pull tasksimbirsoft/noutesusers
 	2.2 docker pull tasksimbirsoft/postgres
