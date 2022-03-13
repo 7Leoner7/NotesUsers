@@ -1,0 +1,44 @@
+﻿@model NotesUsers.Models.AutorizationViewModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<h1>Регистрация</h1>
+
+<hr />
+
+<div class="child">
+    <form asp-action="IndexReg">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Login" class="control-label">Логин</label>
+            <input asp-for="Login" class="form-control" type="email" value="@Model.Login" />
+            <span asp-validation-for="Login" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Пароль</label>
+            <input asp-for="Password" class="form-control" type="password" value="@Model.Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Подтверждение пароля</label>
+            <input class="form-control" value="" type="password" id="password1" name="password1">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Создать аккаунт" class="btn btn-primary" />
+            @{ if (Model.HasError == 1)
+                {<hr /><label>Пользователь с таким логином уже есть, придумайте другой</label>}}
+            @{ if (Model.HasError == 2)
+                {<hr /><label>Пароли не совпадают</label>}}
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="/Home/Index">Главная страница</a>
+</div>
+
+@section Scripts {
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}

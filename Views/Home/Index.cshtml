@@ -1,0 +1,23 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<h1>UserNotes</h1>
+@{ if (Model.HasError != 1)
+    {
+        <form class="child">
+            <a href="/Autorization/IndexAuth"><input type="button" value="Войти"></a>
+            <hr />
+            <a href="/Registration/IndexReg"><input type="button" value="Регистрация"></a>
+        </form>
+   }
+   else
+   {
+   <form asp-action="connector" class="child">
+     <input class="form-control" value="" type="text" id="conn" name="conn">
+       <hr>
+     <input type="submit" value="Отправить строку подключения DB" />
+   </form>
+   }
+}

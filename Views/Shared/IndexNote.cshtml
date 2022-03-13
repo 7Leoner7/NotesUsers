@@ -1,0 +1,53 @@
+﻿@model NotesUsers.Models.NoteViewModel
+
+@{
+    ViewData["Title"] = "Запись";
+}
+
+<h1>Запись</h1>
+
+<hr />
+<div class="child">
+    <form asp-action="IndexNote">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="head" class="control-label">Заголовок</label>
+            <input asp-for="head" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="text" class="control-label">Текст</label>
+            <textarea asp-for="text" class="form-control"></textarea>
+        </div>
+        <input value="@Model.user.Login" hidden type="text" id="user.Login" name="user.Login">
+        <input value="@Model.user.password" hidden type="text" id="user.password" name="user.password">
+        <input asp-for="id" class="form-control" value="@Model.id" hidden="hidden" />
+        <input asp-for="HasError" class="form-control" value="0" hidden="hidden" />
+        <input value="true" hidden id="IsIndexNote" name="IsIndexNote">
+        <div class="form-group">
+            @{
+                if (Model.id == 0)
+                {
+                <input type="submit" value="Создать запись" class="btn btn-primary" />
+                    if(Model.HasError == -1) {
+                <br /><label>Ошибка при отправке запроса DB(скорее всего вы ненаписали заголовок текста или сам текст)</label>
+                    }
+                }
+                else
+                {
+                <input type="submit" value="Изменить запись" class="btn btn-primary" />
+               if(Model.HasError == -1) {
+                <br /><label>Ошибка при отправке запроса DB(скорее всего вы ненаписали заголовок текста или сам текст)</label>
+                }
+                }
+            }
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="/Note/IndexNotes/?login=@Model.user.Login&password=@Model.user.password">Вернуться к записям</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

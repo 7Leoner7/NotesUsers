@@ -1,0 +1,33 @@
+﻿@model List<NotesUsers.Models.NoteViewModel>
+
+@{
+    ViewData["Title"] = "Notes";
+}
+
+<h1>Ваши записи</h1>
+@{
+    if(Model[0].head==null) {
+    <p>Количество ваших записей = 0</p>
+    }
+    else{
+    <p>Количество ваших записей = @Model.Count</p>
+    }
+}
+<p>
+    <a href="/Note/IndexNote/?id=0&user.Login=@Model[0].user.Login&user.password=@Model[0].user.password">Создать новую запись</a>
+</p>
+<table class="table">
+    <tbody>
+@if(Model != null) foreach (var item in Model) {
+        <tr>
+            <td>
+                @if (item.head != null)
+                {
+                    <a href="/Note/IndexNote/?head=@item.head&text=@item.text&id=@item.id&login=@item.user.Login&password=@item.user.password" style="position:relative; left:3%">@item.head</a>
+                    <a href="/Note/DeleteNoteID/?&id=@item.id&login=@item.user.Login&password=@item.user.password" style="position:relative; left:27%"> Удалить</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
