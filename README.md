@@ -39,7 +39,9 @@ CREATE TABLE IF NOT EXISTS public.notes (
 	3.6 После этих действий вернитесь к пункту 4 по развёртке сайта.
 ## Развёртывание сайта через docker-compose
 1. Пункт точно такой же, что и первый пункт в развёртывании сайта
-2. Скачайте с гит хаба файл 7Leoner7/NotesUsers/notesusers_docker-compose.yml
+2. Скачайте с гит хаба файл 7Leoner7/NotesUsers/notesusers_docker-compose.yml (Перед выполнением следующего пункта переместите файл в отдельную пустую папку)
 3. Введите команду в cmd: docker-compose  -f "<полный путь к файлу notesusers_docker-compose.yml>" -p <придумайте название данной коллекции docker'ов> --ansi never up -d
 4. Пункт точно такой же, что и четвёртый пункт в развёртывании сайта
 5. Всё
+### Примечание: 
+Данные подключения к базе данных можно взять из файла notesusers_docker-compose.yml
