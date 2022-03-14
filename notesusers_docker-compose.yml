@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  notesusers:
+    image: tasksimbirsoft/notesusers
+    ports:
+    - 5000:80
+  postgres:
+    image: tasksimbirsoft/postgres:13.3
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: "dbuser"
+      POSTGRES_PASSWORD: "123456"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ../2. Init Database:/docker-entrypoint-initdb.d
+      - .:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
