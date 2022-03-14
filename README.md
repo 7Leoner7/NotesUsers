@@ -5,8 +5,8 @@
 	2.1 docker pull tasksimbirsoft/noutesusers
 	2.2 docker pull tasksimbirsoft/postgres
 	2.3 docker run --name ClientDB -p 5432:5432 -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=<ваш пароль> -e POSTGRES_DB=db -e PGDATA=/var/lib/postgresql/data/pgdata -d -v "/absolute/path/to/directory-with-data":/var/lib/postgresql/data -v "/absolute/path/to/directory-with-init-scripts":/docker-entrypoint-initdb.d tasksimbirsoft/postgres:13.3
-	2.4 docker run -d -p <ваш ip-адрес или localhost>:5000:80 --name UserNotes tasksimbirsoft/notesusers
-3. После данных действий зайдите на сайт по адресу http://<ваш ip-адрес или localhost>:5000
+	2.4 docker run -d -p <ваш ip-адрес>:5000:80 --name UserNotes tasksimbirsoft/notesusers
+3. После данных действий зайдите на сайт по адресу http://<ваш ip-адрес>:5000
 4. Дальше сайт запросит строку для подключения к базе данных. Вы должны ввести такую строку: Host=<ваш ip-адрес>;Port=5432;Username=dbuser;Password=<ваш пароль>;Database=db;
 5. ВСЁ ГОТОВО👍😁
 
